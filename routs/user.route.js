@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUser } from "../controllers/user.controller.js";
+import { createUser, deleteUser, getAllUser, updateUser } from "../controllers/user.controller.js";
 
 const route = express.Router();
 
@@ -7,18 +7,12 @@ const route = express.Router();
 route.get('/', getAllUser);
 
 // Write
-route.post('/', (req, res)=>{
-    res.send("Create Record!!!!!!!");
-});
+route.post('/', createUser);
 
 // Update
-route.put('/:id', (req, res)=>{
-    res.send("Update record!!!!!!!");
-});
+route.put('/:id', updateUser);
 
 // Delete
-route.delete('/id', (req, res)=>{
-    res.send("Delete Record!!!!!");
-});
+route.delete('/:id', deleteUser);
 
 export default route;

@@ -5,8 +5,14 @@ import connectDB from "./lib/db.js";
 const app = express();
 const port = 6969;
 
-app.use('/users', userRouter); // Middleware to parse JSON
+// 🔧 Middleware
+app.use(express.json()); // Parses incoming requests with JSON payloads
+app.use(express.urlencoded({ extended: true })); // Parses URL-encoded data (e.g., from forms)
 
+// 📌 Routes
+app.use('/users', userRouter); // All user-related routes will be prefixed with /users
+
+// DB Connection
 connectDB();
 
 app.listen(port, () => {
