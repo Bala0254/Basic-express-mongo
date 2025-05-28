@@ -1,11 +1,10 @@
 import express from "express";
+import { getAllUser } from "../controllers/user.controller.js";
 
 const route = express.Router();
 
 // Read
-route.get('/', (req, res)=>{
-    res.send("List all!!!!!!!");
-});
+route.get('/', getAllUser);
 
 // Write
 route.post('/', (req, res)=>{
